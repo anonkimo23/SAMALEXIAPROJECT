@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Publicaciones</title>
+    <link rel="stylesheet" href="{% static 'css/eliminar_publicaciones.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Eliminar Publicaciones</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <form method="post" action="{% url 'eliminar_publicaciones' %}">
+                {% csrf_token %}
+                <p>Selecciona las publicaciones que deseas eliminar:</p>
+                {% if publicaciones %}
+                    <ul class="publicaciones-lista">
+                        {% for publicacion in publicaciones %}
+                            <li>
+                                <input type="checkbox" name="eliminar[]" value="{{ publicacion.id }}">
+                                <span>{{ publicacion.titulo }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <button type="submit" class="btn-eliminar">Eliminar Seleccionadas</button>
+                {% else %}
+                    <p>No hay publicaciones disponibles para eliminar.</p>
+                {% endif %}
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Colegio Fundación La Paz</p>
+    </footer>
+</body>
+</html>

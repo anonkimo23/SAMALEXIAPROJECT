@@ -1,0 +1,317 @@
+/* Estilos generales para el body */
+body {
+    background-image: url("{% static 'img/logo.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: cover; /* Para cubrir toda la pantalla */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0707073d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Estilo para el header */
+header {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(200, 215, 200, 0.9);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box; 
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+
+header h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    flex-grow: 1; /* Ocupa todo el espacio restante */
+    text-align: center; /* Centra el título horizontalmente */
+}
+
+.logo-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 20%; /* Añade margen derecho para separar la imagen del texto */
+}
+
+.lema {
+    margin-left: 20px;
+    text-align: center; /* Centra el lema horizontalmente */
+}
+
+/* Estilo para el contenedor de la evaluación */
+.evaluation-container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.486);
+    max-width: 800px;
+    width: 100%;
+    margin-left: 20%;
+    margin-top: 500px;
+}
+
+/* Estilo para la sección de información del estudiante */
+.student-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.student-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 2px solid #ccc;
+}
+
+.student-details {
+    line-height: 1.6;
+}
+
+/* Estilo para la tabla de observaciones */
+.observation-table {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+/* Estilo para el textarea */
+.add-observation textarea {
+    width: 100%; /* Hace que el ancho sea 100% del contenedor */
+    height: 100px; /* Altura mayor para hacerlo más grande */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border: 1px solid #ccc; /* Borde del textarea */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* Para asegurar que el padding no afecte el tamaño total */
+    margin-bottom: 20px; /* Espaciado hacia abajo */
+}
+
+/* Estilo para el botón de añadir observación */
+.add-observation button {
+    display: block; /* Hace que el botón se muestre como bloque */
+    width: auto; /* El ancho del botón se ajustará a su contenido */
+    margin-top: 20px; /* Añadir espacio superior */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor cuando pasa sobre el botón */
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Texto en blanco */
+    border: none; /* Eliminar el borde */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave para cambio de color */
+}
+
+/* Cambiar el color del botón al pasar el ratón */
+.add-observation button:hover {
+    background-color: #006305;
+}
+
+/* Estilo para la tabla de observaciones */
+#observation-table th, #observation-table td {
+    padding: 15px; /* Añadir espacio alrededor del contenido */
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+#observation-table td {
+    width: 200px; /* Ancho fijo para las celdas */
+}
+
+/* Estilo para las imágenes de perfil */
+.perfil {
+    border-radius: 50%;
+    height: 170px;
+    width: 170px;
+    margin-top: 7%;
+}
+
+.marco {
+    border-radius: 50%;
+    margin-right: 10%;
+    background-color: #19592f;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+}
+
+/* Centrado y espaciado del contenedor de la evaluación */
+.evaluation-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Centrar el contenedor */
+}
+.container{
+    margin-top:20%
+}
+.btn{
+    color: #f0f0f0;
+    background-color: #006305;
+    border-radius: 50px;
+}
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#curso-select, #estudiante-select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #19592f;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+header img.logo-img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+header p.motto {
+    font-size: 16px;
+    font-style: italic;
+    margin: 5px 0 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.container h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #19592f;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table thead {
+    background-color: #19592f;
+    color: white;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+table tbody td {
+    font-size: 16px;
+    color: #333;
+}
+
+table tbody td:first-child {
+    font-weight: bold;
+}
+
+table tbody td:last-child {
+    text-align: right;
+}
+
+.no-observations {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    margin: 20px 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #888;
+    background-color: #f3f4f6;
+    border-top: 1px solid #ddd;
+}
+        /* Estilos para el botón de eliminar */
+        .delete-btn {
+            background-color: #d9534f; /* Rojo */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .delete-btn:hover {
+            background-color: #c9302c;
+        }
+        .delete-form {
+            display: inline-block; /* Para que el formulario esté en línea */
+        }
+

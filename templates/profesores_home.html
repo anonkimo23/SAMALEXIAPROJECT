@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Profesor</title>
+    <link rel="stylesheet" href="{% static 'css/profesores_home.css' %}">
+</head>
+<body>
+    <header class="header">
+        <img src="{% static 'img/Alumnos.jpg' %}" class="img-menu">
+        <div class="top-line">
+            <div class="header-logo">
+                <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="logo-img">
+            </div>
+            <div class="header-phrase">
+                - FORMAMOS LÍDERES COMUNITARIOS A TRAVÉS DE VALORES -
+            </div>
+        </div>
+        <div class="header-bottom1"></div>
+        <div class="header-bottom">
+            <div class="tag-Docentes">Perfil de Docentes</div>
+            <div class="header-buttons">
+                <button class="header-button1"onclick="location.href='{% url 'cursos' %}';">Cursos</button>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Cerrar sesión</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mensajes de éxito o error -->
+    <div>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <!-- Contenedor para publicar -->
+    <div class="contenedor-publicar" style="display: none;">
+        <div class="contenido-publicar">
+            <!-- Formulario de Django -->
+            <form method="post" enctype="multipart/form-data" id="form-publicar">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="titulo" class="label-titulo">Título del evento:</label>
+                    <input type="text" name="titulo" id="titulo" class="form-control input-titulo" placeholder="Ingresa el título del evento">
+                </div>
+                <div class="form-group">
+                    <label for="imagen1" class="label-imagen">Sube tu primera imagen:</label>
+                    <input type="file" name="imagen1" id="imagen1" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="imagen2" class="label-imagen">Sube tu segunda imagen:</label>
+                    <input type="file" name="imagen2" id="imagen2" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="descripcion" class="label-descripcion">Descripción del evento:</label>
+                    <textarea name="descripcion" id="descripcion" class="form-control" placeholder="Escribe la descripción del evento"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-success btn-enviar">Enviar</button>
+                    <button type="button" class="btn btn-cancelar btn-success">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+   <!-- Contenedor para eliminar publicaciones -->
+<div class="contenedor-eliminar" style="display: none;">
+    <div class="contenido-eliminar">
+        <h2>Eliminar Publicaciones</h2>
+        <form method="post" id="form-eliminar" action="{% url 'eliminar_publicaciones' %}">
+            {% csrf_token %}
+            {% for publicacion in publicaciones %}
+                <div class="publicacion-eliminar">
+                    <input type="checkbox" name="eliminar[]" value="{{ publicacion.id }}" id="publicacion-{{ publicacion.id }}">
+                    <label for="publicacion-{{ publicacion.id }}">{{ publicacion.titulo }}</label>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-danger">Eliminar Seleccionados</button>
+            <button type="button" class="btn-cancelar-eliminar">Cancelar</button>
+        </form>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="barra-publicar">
+        <!-- Botón Publicar -->
+        <button class="abrir-barra btn btn-success">Publicar</button>
+        <!-- Botón Eliminar Publicaciones -->
+        <button class="abrir-eliminar btn btn-success">Eliminar Publicaciones</button>
+    </div>
+    <main class="main-content">
+        <div class="content-box">
+            <h1 class="main-title">Horario</h1>
+            <table class="horario">
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>8:00 - 9:00</th>
+                        <th>9:00 - 10:00</th>
+                        <th>10:00 - 11:00</th>
+                        <th>11:00 - 12:00</th>
+                        <th>12:00 - 1:00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lunes</td>
+                        <td>Matemáticas (Preescolar)</td>
+                        <td>Lengua y Literatura (1º)</td>
+                        <td>Ciencias Naturales (2º)</td>
+                        <td>Historia (3º)</td>
+                        <td>Matemáticas (5º)</td>
+                    </tr>
+                    <!-- Otros días -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <!-- Footer content -->
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const botonPublicar = document.querySelector('.abrir-barra');
+            const contenedorPublicar = document.querySelector('.contenedor-publicar');
+            const btnCancelar = document.querySelector('.btn-cancelar');
+
+            const botonEliminar = document.querySelector('.abrir-eliminar');
+            const contenedorEliminar = document.querySelector('.contenedor-eliminar');
+            const btnCancelarEliminar = document.querySelector('.btn-cancelar-eliminar');
+
+            // Muestra el formulario al hacer clic en el botón Publicar
+            botonPublicar.addEventListener('click', function () {
+                contenedorPublicar.style.display = 'flex';
+            });
+
+            // Oculta el formulario al hacer clic en el botón Cancelar
+            btnCancelar.addEventListener('click', function () {
+                contenedorPublicar.style.display = 'none';
+            });
+
+            // Muestra el contenedor de eliminar publicaciones
+            botonEliminar.addEventListener('click', function () {
+                contenedorEliminar.style.display = 'flex';
+            });
+
+            // Oculta el contenedor de eliminar publicaciones
+            btnCancelarEliminar.addEventListener('click', function () {
+                contenedorEliminar.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

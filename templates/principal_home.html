@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/principal_home.css' %}">
+    <title>Home</title>
+</head>
+<body>
+
+    <header class="header">
+        <img src="{% static 'img/alumnomenu.jpg' %}" class="img-menu">
+        <div class="top-line">
+            <div class="header-logo">
+                <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="logo-img">
+            </div>
+            <div class="header-phrase">
+                - FORMAMOS LÍDERES COMUNITARIOS A TRAVÉS DE VALORES -
+            </div>
+        </div>
+    <div class="header-bottom1"> </div>
+    <div class="header-bottom">
+        <div class="header-buttons">
+
+            <div class="dropdown">
+                <div class="button-group">
+                    <button class="header-button1"onclick="location.href='{% url 'manual_convivencia' %}';">Manual de Convivencia</button>
+                    <button class="arrow-button">
+                        <div class="arrow-caret"></div>
+                    </button>
+                </div>
+                <div class="dropdown-content">
+                    <p>Aquí puedes consultar las normas de convivencia.</p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="button-group">
+                    <button class="header-button1">Quiénes Somos</button>
+                    <button class="arrow-button">
+                        <div class="arrow-caret"></div>
+                    </button>
+                </div>
+                <div class="dropdown-content">
+                    <p>Conoce más sobre nuestra misión, visión y valores.</p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="button-group">
+                    <button class="header-button1">Información Académica</button>
+                    <button class="arrow-button">
+                        <div class="arrow-caret"></div>
+                    </button>
+                </div>
+                <div class="dropdown-content">
+                    <p>Detalles sobre programas y recursos académicos.</p>
+                </div>
+            </div>
+            <div  class="em">
+                <button class="header-button1"onclick="location.href='{% url 'login_app' %}';">Iniciar Sesion</button>
+        </div>
+        </div>
+    </div>
+    
+
+    </header>
+    
+
+
+
+<h1 class="title">COLEGIO FUNDACIÓN LA PAZ </h1>
+<h2 class="subtitle">Institución educativa</h2>
+
+    <main class="main-content">
+        <div class="content-box">
+
+            <div class="image-collage">
+                <img src="{% static 'img/publi.PNG' %}" class="img-square1" alt="Imagen Cuadrada">
+                <img src="{% static 'img/publi2.PNG' %}" class="img-vertical" alt="Imagen Rectangular Vertical">
+                <img src="{% static 'img/publi1.PNG' %}" class="img-square1" alt="Imagen Cuadrada">
+            </div>
+
+            <p class="description">
+                El COLEGIO FUNDACIÓN LA PAZ es una institución educativa de carácter privado, situada en la localidad de Usaquén, al norte y oriente de Bogotá. Ofrecemos servicios educativos en los niveles de preescolar y básica primaria, siguiendo el calendario A del sistema académico distrital de la ciudad.
+            </p>
+
+
+            <hr class="separator-con">
+
+
+            <div class="image-text-section">
+                <img src="{% static 'img/publi3.PNG'%}" class="img-square" alt="Imagen Cuadrada">
+                <p class="additional-text">La institución esta enfocada en  proporcionar un ambiente de aprendizaje integral, fomentando el desarrollo académico, social y emocional de sus estudiantes. Además, cuenta con un equipo docentes capacitado y programas educativos diseñados para promover el pensamiento crítico y la creatividad desde los primeros años de formación.</p>
+            </div>
+        </div>
+    </main>
+
+
+        </main>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const elementsToAnimate = document.querySelectorAll('.content-box, .image-collage, .description, .additional-text');
+        
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "8px",
+                    threshold: 0.1
+                };
+        
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        } else {
+                            entry.target.classList.remove('visible');
+                        }
+                    });
+                }, observerOptions);
+        
+                elementsToAnimate.forEach(element => observer.observe(element));
+            });
+        </script>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const contentBoxes = document.querySelectorAll('.content-box');
+                const imageCollages = document.querySelectorAll('.image-collage');
+                const paragraphs = document.querySelectorAll('p');
+        
+                const options = {
+                    root: null, 
+                    rootMargin: "0px",
+                    threshold: 0.3 
+                };
+        
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add('visible');
+                        } else {
+
+                            entry.target.classList.remove('visible');
+                        }
+                    });
+                }, options);
+        
+                contentBoxes.forEach(box => observer.observe(box));
+                imageCollages.forEach(collage => observer.observe(collage));
+                paragraphs.forEach(paragraph => observer.observe(paragraph));
+            });
+        </script>
+    </div>
+
+
+    <footer class="footer">
+
+        <div class="footer-top">
+    
+            <div class="footer-section">
+                <h3>Datos de Contacto</h3>
+                <ul>
+                    <li>303850534</li>
+                    <li>Matrícula: 3024853758</li>
+                    <li>Carrera 8c Bis # 163b - 25, Bogotá</li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li>Política de tratamiento de datos</li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Enlaces de interés</h3>
+                <ul>
+                    <li>Eventos</li>
+                    <li class="social-links">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'ico/facebook-icon.png' %}" class="social-icon" alt="Facebook">
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'ico/instagram-icon.png' %}" class="social-icon" alt="Instagram">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="footer-separator"></div>
+    
+        <div class="footer-bottom">
+    
+            <div class="footer-logo">
+                <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="logo">
+                <div class="footer-text">
+                    <p>COLEGIO</p>
+                    <p>FUNDACIÓN</p>
+                    <p>LA PAZ</p>
+                </div>
+            </div>
+    
+            <div class="footer-design">
+                <p>©2024. Diseño realizado por Samalexia</p>
+            </div>
+        </div>
+    
+    </footer>
+
+    <script>
+
+        function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); 
+        }
+    });
+}
+
+const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.5 
+});
+
+const elementsToAnimate = document.querySelectorAll('.footer-top, .footer-separator, .footer-bottom, .footer-logo, .footer-design');
+
+elementsToAnimate.forEach(element => {
+    observer.observe(element);
+});
+                </script>
+    
+</body>
+</html>

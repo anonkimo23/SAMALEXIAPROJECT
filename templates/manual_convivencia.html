@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/manual_convivencia.css' %}">
+    <title>Manual De Convivencia</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content slide-down">
+            <h1 class="header-h1">FUNDACIÓN LA PAZ</h1>
+            <p class="header-p">- Formamos líderes comunitarios a través de valores -</p>
+        </div>
+        <div class="header-logo slide-down">
+            <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="logo-img">
+        </div>
+    </header>
+    
+    <script>
+        window.onload = function() {
+            document.querySelector('.header-content').classList.add('slide-down');
+            document.querySelector('.header-logo').classList.add('slide-down');
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 class="title">MANUAL DE COVIVENCIA </h1>
+<h2 class="subtitle">FUNDACIÓN LA PAZ </h2>
+
+
+
+    <div class="container">
+
+
+        <main class="main-content">
+            <div class="content-box">
+    
+
+                <p class="description">
+                    <strong>1. Introducción:</strong>
+                    <br>Este Manual de Convivencia tiene como objetivo principal fomentar un ambiente escolar armonioso, donde los estudiantes puedan desarrollarse integralmente. Es una guía que regula la interacción entre todos los miembros de la comunidad educativa.
+                    <br>
+                    </p>
+                    <p class="description">
+                        <strong>2. Objetivos del Manual de Convivencia:</strong>
+                <br><strong>•</strong> Promover el respeto mutuo entre estudiantes, docentes y personal administrativo.
+                <br><strong>•</strong> Establecer normas claras para una convivencia pacífica y respetuosa.
+                <br><strong>•</strong> Definir derechos, deberes, y sanciones para los estudiantes.
+                </p>
+
+                <hr class="separator-con">
+    
+
+                <div class="image-text-section">
+                    <img src="{% static 'img/publi1.PNG' %}" class="img-square1" alt="Imagen Cuadrada">
+                    <p class="additional-text"><strong>3. Derechos y Deberes de los Estudiantes</strong>
+                        <br><strong>3.1. Derechos</strong>
+                        <br><strong>•</strong> Derecho a recibir una educación de calidad.
+                        <br><strong>•</strong> Derecho a ser tratado con respeto y dignidad.
+                        <br><strong>•</strong> Derecho a expresar opiniones de manera respetuosa.
+                        <br><strong>3.2. Deberes</strong>
+                        <br><strong>•</strong> Respetar a todos los miembros de la comunidad educativa.
+                        <br><strong>•</strong> Cuidar las instalaciones y materiales del colegio.
+                        <br><strong>•</strong> Cumplir con las normas y responsabilidades asignadas.
+                        <br><strong>4. Normas de Convivencia</strong>
+                        <br><strong>4.1. Respeto entre compañeros</strong>
+                        Los estudiantes deben tratarse con respeto, evitando cualquier forma de acoso, agresión o discriminación.
+                        <br><strong>4.2. Uso adecuado de las instalaciones</strong>
+                        El mobiliario y las instalaciones del colegio deben ser usados adecuadamente, evitando causar daños o deterioro.
+                        <br><strong>4.3. Comportamiento en el aula</strong>
+                        Durante las clases, los estudiantes deben mantener una actitud de respeto hacia el docente y sus compañeros, evitando interrupciones innecesarias.</p>
+                </div>
+                <div class="image-text-section">
+                    <img src="{% static 'img/cont2.jpg'%}" class="img-square" alt="Imagen Cuadrada">
+                    <p class="additional-text"><strong>5. Faltas y Sanciones</strong>
+                        <br><strong>5.1. Tipos de faltas</strong>
+                        <br><strong>•</strong> Leves: Llegadas tardías, olvidos de material escolar, pequeñas faltas de respeto.
+                        <br><strong>•</strong> Graves: Faltas de respeto a compañeros o docentes, incumplimiento de las normas de comportamiento.
+                        <br><strong>•</strong> Muy graves: Violencia física o verbal, vandalismo, desobediencia deliberada.
+                        <br><strong>5.2. Sanciones correspondientes</strong>
+                        <br><strong>•</strong> Faltas leves: Amonestación verbal, anotación en el libro de faltas.
+                        <br><strong>•</strong> Faltas graves: Suspensión temporal de actividades extracurriculares.
+                        <br><strong>•</strong> Faltas muy graves: Suspensión temporal de clases o expulsión, dependiendo de la gravedad.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+            </main>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const elementsToAnimate = document.querySelectorAll('.content-box, .image-collage, .description, .additional-text');
+            
+                    const observerOptions = {
+                        root: null,
+                        rootMargin: "0px",
+                        threshold: 0.1
+                    };
+            
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                            } else {
+                                entry.target.classList.remove('visible');
+                            }
+                        });
+                    }, observerOptions);
+            
+                    elementsToAnimate.forEach(element => observer.observe(element));
+                });
+            </script>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const contentBoxes = document.querySelectorAll('.content-box');
+                    const imageCollages = document.querySelectorAll('.image-collage');
+                    const paragraphs = document.querySelectorAll('p');
+            
+                    const options = {
+                        root: null, 
+                        rootMargin: "0px",
+                        threshold: 0.5 
+                    };
+            
+                    const observer = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+    
+                                entry.target.classList.add('visible');
+                            } else {
+    
+                                entry.target.classList.remove('visible');
+                            }
+                        });
+                    }, options);
+            
+                    contentBoxes.forEach(box => observer.observe(box));
+                    imageCollages.forEach(collage => observer.observe(collage));
+                    paragraphs.forEach(paragraph => observer.observe(paragraph));
+                });
+            </script>
+    
+    
+
+    </div>
+
+
+    
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <div class="footer-section">
+                <h3>Datos de Contacto</h3>
+                <ul>
+                    <li>303850534</li>
+                    <li>Matrícula: 3024853758</li>
+                    <li>Carrera 8c Bis # 163b - 25, Bogotá</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li>Política de tratamiento de datos</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Enlaces de interés</h3>
+                <ul>
+                    <li>Eventos</li>
+                </ul>
+            </div>
+        </div>
+    
+
+        <div class="footer-separator"></div>
+    
+
+        <div class="footer-bottom">
+
+            <div class="footer-logo">
+                <img src="{% static 'img/logo.jpg'%}" alt="Logo" class="logo">
+                <div class="footer-text">
+                    <p>COLEGIO</p>
+                    <p>FUNDACIÓN</p>
+                    <p>LA PAZ</p>
+                </div>
+            </div>
+    
+            <div class="footer-design">
+                <p>©2024. Diseño realizado por Samalexia</p>
+            </div>
+        </div>
+
+        <script>
+
+function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); 
+        }
+    });
+}
+
+
+const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.5 
+});
+
+const elementsToAnimate = document.querySelectorAll('.footer-top, .footer-separator, .footer-bottom, .footer-logo, .footer-design');
+
+elementsToAnimate.forEach(element => {
+    observer.observe(element);
+});
+
+        </script>
+    </footer>
+</body>
+</html>

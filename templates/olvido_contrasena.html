@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Fundación La Paz - Login</title>
+    <link rel="stylesheet" href={% static 'css/Olvido_contrasena.css' %}>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>COLEGIO FUNDACIÓN LA PAZ</h1>
+            <p class="motto">- FORMAMOS LÍDERES COMUNITARIOS A TRAVÉS DE VALORES -</p>
+        </header>
+        
+        <main class="login-card">
+            <div class="logo">
+                <!-- Replace with actual logo path -->
+                <img src={% static 'img/logo.jpg' %} alt="Logo Colegio Fundación La Paz">
+
+            </div>
+            
+            <h2>Olvide mi contraseña</h2>
+            <p class="form-text">Digite el correo electrónico con el que se registró para recuperar su contraseña</p>
+
+            
+            <form class="login-form">
+                <div class="input-group">
+                    <span class="icon">✉️</span>
+                    <input type="text" placeholder="Correo" required>
+                </div>
+                
+                <button type="submit">Enviar</button>
+            </form>
+
+            <div class="contact-info">
+                <p>¿Necesitas ayuda? </p>
+                <p>Contactanos:</p>
+                <p>Correo:</p>
+            </div>
+
+            <p><a href="{% url 'principal_home' %}">Volver al inicio</a></p>
+           
+        </main>
+
+    </div>
+</body>
+</html>

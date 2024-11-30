@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Observador.css' %}">
+    <title>Observador Estudiantil</title>
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/logosinfondo.png' %}" alt="Logo" class="logo-img">
+        <div class="lema">
+            <h1>COLEGIO FUNDACIÓN LA PAZ</h1>
+            <p class="motto">- FORMAMOS LÍDERES COMUNITARIOS A TRAVÉS DE VALORES -</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Observador Estudiantil</h2>
+        
+        {% if observaciones %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Observación</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for observacion in observaciones %}
+                <tr>
+                    <td>{{ observacion.descripcion }}</td>
+                    <td>{{ observacion.fecha|date:"d M Y H:i" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-observations">No hay observaciones aún.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

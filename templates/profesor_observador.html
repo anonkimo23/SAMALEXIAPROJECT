@@ -1,0 +1,121 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Observador.css' %}">
+    <title>Observador</title>
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/logosinfondo.png' %}" alt="Logo" class="logo-img">
+        <div class="lema">
+            <h1>COLEGIO FUNDACIÓN LA PAZ</h1>
+            <p class="motto">- FORMAMOS LÍDERES COMUNITARIOS A TRAVÉS DE VALORES -</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Filtros para seleccionar curso y estudiante -->
+        <form method="GET" action="{% url 'profesor_observador' %}">
+            <div class="filter-container">
+                <select name="curso" id="curso-select" onchange="this.form.submit()">
+                    <option value="">Seleccione un curso</option>
+                    {% for curso in cursos %}
+                        <option value="{{ curso.id }}" {% if curso.id|stringformat:"s" == curso_seleccionado %}selected{% endif %}>
+                            {{ curso.nombre }}
+                        </option>
+                    {% endfor %}
+                </select>
+        
+                <select name="estudiante" id="estudiante-select" onchange="this.form.submit()">
+                    <option value="">Seleccione un estudiante</option>
+                    {% for estudiante in estudiantes %}
+                        <option value="{{ estudiante.id }}" {% if estudiante.id|stringformat:"s" == estudiante_seleccionado %}selected{% endif %}>
+                            {{ estudiante.user.first_name }} {{ estudiante.user.last_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+        
+        <div class="evaluation-container">
+            <!-- Información del estudiante -->
+            <div class="student-info">
+                <div class="marco">
+                    <img src="{% static 'img/alumno.jpg' %}" alt="Foto del estudiante" class="perfil">
+                </div>
+                <div class="student-details">
+                    <h2>Observador Estudiantil</h2>
+                    <p><strong>Nombre del estudiante:</strong> 
+                        {% if estudiante_seleccionado %}
+                            {% for estudiante in estudiantes %}
+                                {% if estudiante.id|stringformat:"s" == estudiante_seleccionado %}
+                                    {{ estudiante.user.first_name }} {{ estudiante.user.last_name }}
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            Selecciona un estudiante
+                        {% endif %}
+                    </p>
+                    <p><strong>Grado:</strong>
+                        {% if curso_seleccionado %}
+                            {% for curso in cursos %}
+                                {% if curso.id|stringformat:"s" == curso_seleccionado %}
+                                    {{ curso.nombre }}
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            Selecciona un curso
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tabla de observaciones -->
+            <div class="observation-table">
+                <table id="observation-table">
+                    <thead>
+                        <tr>
+                            <th>Observación</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if observaciones %}
+                            {% for observacion in observaciones %}
+                                <tr>
+                                    <td>{{ observacion.descripcion }}</td>
+                                    <td>{{ observacion.fecha }}</td>
+                                    <td>
+                                        <!-- Formulario para borrar la observación -->
+                                        <form method="POST" action="{% url 'borrar_observacion' observacion.id %}" class="delete-form">
+                                            {% csrf_token %}
+                                            <button type="submit" class="delete-btn">Eliminar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="3">No hay observaciones aún.</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Formulario para añadir una observación -->
+            <form method="POST" action="{% url 'profesor_observador' %}">
+                {% csrf_token %}
+                <textarea name="descripcion" placeholder="Escribe tu observación aquí..." required></textarea>
+                <input type="hidden" name="estudiante_id" value="{{ estudiante_seleccionado }}">
+                <button type="submit">Añadir Observación</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

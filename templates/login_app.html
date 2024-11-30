@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Fundación La Paz - Login</title>
+    <link rel="stylesheet" href="{% static 'css/login_app.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>COLEGIO FUNDACIÓN LA PAZ</h1>
+            <p class="motto">- FORMAMOS LÍDERES COMUNITARIOS A TRAVÉS DE VALORES -</p>
+        </header>
+        
+        <main class="login-card">
+            <div class="logo">
+                <!-- Replace with actual logo path -->
+                <img src="{% static 'img/logo.jpg' %}" alt="Logo Colegio Fundación La Paz">
+            </div>
+            
+            <h2>Inicio De Sesión</h2>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            
+            <!-- Aquí está el formulario de login -->
+            <form method="POST">
+                {% csrf_token %}
+                <div class="login-form">
+                    <div class="input-group">
+                        <span class="icon">👤</span>
+                        <input type="text" name="username" placeholder="Usuario" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <span class="icon">🔒</span>
+                        <input type="password" name="password" placeholder="Contraseña" required>
+                    </div>
+                    <p class="forgot-password">
+                        <a href="{% url 'olvido_contrasena' %}">Olvidé mi contraseña</a>
+                    </p>                
+                    <button type="submit">Ingresar</button>
+                </div>
+            </form>
+            
+            <p><a href="{% url 'principal_home' %}">Volver al inicio</a></p>
+                      
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,347 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+    <link rel="stylesheet" href="{% static 'css/cursos.css'%}" >
+    
+</head>
+<body>
+    <header class="header">
+        <div class="header-content slide-down">
+            <h1 class="header-h1">FUNDACIÓN LA PAZ</h1>
+            <p class="header-p">- Formamos líderes comunitarios a través de valores -</p>
+        </div>
+        <div class="header-logo slide-down">
+            <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="logo-img">
+        </div>
+        <script>
+
+            window.onload = function() {
+    
+                document.querySelector('.header-content').classList.add('slide-down');
+                document.querySelector('.header-logo').classList.add('slide-down');
+            };
+        </script>
+    
+    </header>
+    
+
+
+    <div class="menu-circular" onclick="toggleMenu()">
+        <div class="hamburger"></div>
+    </div>
+    
+    <ul class="menu" id="menu">
+        <p class="cr">Cursos</p>
+        <li class="separator"></li>
+        <li><a href="#">Primero</a></li>
+        <li><a href="#">Segundo</a></li>
+        <li><a href="#">Tercero</a></li>
+        <li><a href="#">Cuarto</a></li>
+        <li><a href="#">Quinto</a></li>
+        <li class="separator"></li>
+        <li ><a href="#">Home</a></li>
+    </ul>
+    
+
+    
+    <script>
+        function toggleMenu() {
+            const menuCircular = document.querySelector('.menu-circular');
+            const menu = document.querySelector('.menu');
+            menuCircular.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+    </script>
+    
+
+
+
+        <h1 class="title">Bienvenido</h1>
+
+        <div class="container">
+
+            <main class="main-content">
+                <div class="content-box">
+                    <h1 class="main-title">Horario</h1>
+                    
+                    <!-- Tabla para Primero -->
+                    <div class="table-content" id="primero">
+                        <table class="horario">
+                            <thead>
+                                <tr>
+                                    <th>Día</th>
+                                    <th>8:00 - 9:00</th>
+                                    <th>9:00 - 10:00</th>
+                                    <th>10:00 - 11:00</th>
+                                    <th>11:00 - 12:00</th>
+                                    <th>12:00 - 1:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Lunes</td><td>Matemáticas</td><td>Lengua</td><td>Ciencias</td><td>Historia</td><td>Arte</td></tr>
+                                <tr><td>Martes</td><td>Lengua</td><td>Ciencias</td><td>Matemáticas</td><td>Arte</td><td>Historia</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="button-container">
+                            <button class="custom-button">Notas</button>
+                            <button class="custom-button">Observador</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabla para Segundo -->
+                    <div class="table-content" id="segundo" style="display: none;">
+                        <table class="horario">
+                            <thead>
+                                <tr>
+                                    <th>Día</th>
+                                    <th>8:00 - 9:00</th>
+                                    <th>9:00 - 10:00</th>
+                                    <th>10:00 - 11:00</th>
+                                    <th>11:00 - 12:00</th>
+                                    <th>12:00 - 1:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Lunes</td><td>Historia</td><td>Matemáticas</td><td>Arte</td><td>Ciencias</td><td>Lengua</td></tr>
+                                <tr><td>Martes</td><td>Ciencias</td><td>Historia</td><td>Matemáticas</td><td>Lengua</td><td>Arte</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="button-container">
+                            <button class="custom-button">Notas</button>
+                            <button class="custom-button">Observador</button>
+                        </div>
+                    </div>
+        
+                    <!-- Tabla para Tercero -->
+                    <div class="table-content" id="tercero" style="display: none;">
+                        <table class="horario">
+                            <thead>
+                                <tr>
+                                    <th>Día</th>
+                                    <th>8:00 - 9:00</th>
+                                    <th>9:00 - 10:00</th>
+                                    <th>10:00 - 11:00</th>
+                                    <th>11:00 - 12:00</th>
+                                    <th>12:00 - 1:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Lunes</td><td>Lengua</td><td>Ciencias</td><td>Historia</td><td>Arte</td><td>Matemáticas</td></tr>
+                                <tr><td>Martes</td><td>Arte</td><td>Historia</td><td>Ciencias</td><td>Lengua</td><td>Matemáticas</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="button-container">
+                            <button class="custom-button">Notas</button>
+                            <button class="custom-button">Observador</button>
+                        </div>
+                    </div>
+        
+                    <!-- Tabla para Cuarto -->
+                    <div class="table-content" id="cuarto" style="display: none;">
+                        <table class="horario">
+                            <thead>
+                                <tr>
+                                    <th>Día</th>
+                                    <th>8:00 - 9:00</th>
+                                    <th>9:00 - 10:00</th>
+                                    <th>10:00 - 11:00</th>
+                                    <th>11:00 - 12:00</th>
+                                    <th>12:00 - 1:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Lunes</td><td>Historia</td><td>Arte</td><td>Lengua</td><td>Ciencias</td><td>Matemáticas</td></tr>
+                                <tr><td>Martes</td><td>Ciencias</td><td>Lengua</td><td>Matemáticas</td><td>Arte</td><td>Historia</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="button-container">
+                            <button class="custom-button">Notas</button>
+                            <button class="custom-button">Observador</button>
+                        </div>
+                    </div>
+        
+                    <!-- Tabla para Quinto -->
+                    <div class="table-content" id="quinto" style="display: none;">
+                        <table class="horario">
+                            <thead>
+                                <tr>
+                                    <th>Día</th>
+                                    <th>8:00 - 9:00</th>
+                                    <th>9:00 - 10:00</th>
+                                    <th>10:00 - 11:00</th>
+                                    <th>11:00 - 12:00</th>
+                                    <th>12:00 - 1:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Lunes</td><td>Arte</td><td>Lengua</td><td>Ciencias</td><td>Matemáticas</td><td>Historia</td></tr>
+                                <tr><td>Martes</td><td>Historia</td><td>Matemáticas</td><td>Lengua</td><td>Ciencias</td><td>Arte</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="button-container">
+                            <button class="custom-button">Notas</button>
+                            <button class="custom-button"onclick="location.href='{% url 'profesor_observador' %}';">Observador/button>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        
+        
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const botonPublicar = document.querySelector('.abrir-barra');
+                    const contenedorPublicar = document.querySelector('.contenedor-publicar');
+                    const btnCancelar = document.querySelector('.btn-cancelar');
+                    const btnEnviar = document.querySelector('.btn-enviar');
+                    const imagenInput = document.querySelector('#imagen');
+                    const textoInput = document.querySelector('#texto');
+        
+                    botonPublicar.addEventListener('click', function() {
+                        contenedorPublicar.style.display = 'flex';
+                    });
+        
+                    btnCancelar.addEventListener('click', function() {
+                        contenedorPublicar.style.display = 'none';
+                    });
+                
+        
+                    btnEnviar.addEventListener('click', function() {
+                        const imagenes = imagenInput.files;
+                        const texto = textoInput.value;
+        
+                        console.log('Imágenes:', imagenes);
+                        console.log('Texto:', texto);
+        
+                        contenedorPublicar.style.display = 'none';
+                    });
+                });
+                
+            </script>
+            
+                </main>
+                
+        
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Seleccionamos los enlaces del menú
+                        const menuItems = document.querySelectorAll('.menu li a');
+                        
+                        // Seleccionamos todas las tablas
+                        const tableContents = document.querySelectorAll('.table-content');
+                        
+                        // Recorremos cada elemento del menú
+                        menuItems.forEach(item => {
+                            item.addEventListener('click', function(event) {
+                                event.preventDefault(); // Evitamos el comportamiento por defecto del enlace
+                    
+                                // Ocultamos todas las tablas
+                                tableContents.forEach(table => {
+                                    table.style.display = 'none';
+                                });
+                    
+                                // Mostramos la tabla correspondiente
+                                const tableId = item.textContent.trim().toLowerCase(); // Convertimos el texto del enlace al formato del ID
+                                const tableToShow = document.getElementById(tableId);
+                                if (tableToShow) {
+                                    tableToShow.style.display = 'block';
+                                }
+                    
+                                // Actualizamos el estado visual del menú (opcional)
+                                menuItems.forEach(menu => menu.classList.remove('active'));
+                                item.classList.add('active');
+                            });
+                        });
+                    });
+                    </script>
+                    
+        
+        
+        
+        
+        
+            </div>
+    
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <div class="footer-section">
+                <h3>Datos de Contacto</h3>
+                <ul>
+                    <li>303850534</li>
+                    <li>Matrícula: 3024853758</li>
+                    <li>Carrera 8c Bis # 163b - 25, Bogotá</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li>Política de tratamiento de datos</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Enlaces de interés</h3>
+                <ul>
+                    <li><a href="#"><img src="{% static 'ico/facebook.png'%}" class="menu-icon1" alt="Manual Icon"></a><p class="ppp">facebook</p></li>
+                    <li><a href="#"><img src="{% static 'ico/instagram.png'%}" class="menu-icon1" alt="Manual Icon"></a><p class="ppp">instagram</p></li>
+                </ul>
+            </div>
+        </div>
+    
+
+        <div class="footer-separator"></div>
+    
+
+        <div class="footer-bottom">
+
+            <div class="footer-logo">
+                <img src="{% static 'img/logo.jpg'%}" alt="Logo" class="logo">
+                <div class="footer-text">
+                    <p>COLEGIO</p>
+                    <p>FUNDACIÓN</p>
+                    <p>LA PAZ</p>
+                </div>
+            </div>
+    
+            <div class="footer-design">
+                <p>©2024. Diseño realizado por Samalexia</p>
+            </div>
+        </div>
+
+        <script>
+
+function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); 
+        }
+    });
+}
+
+
+const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.5 
+});
+
+const elementsToAnimate = document.querySelectorAll('.footer-top, .footer-separator, .footer-bottom, .footer-logo, .footer-design');
+
+elementsToAnimate.forEach(element => {
+    observer.observe(element);
+});
+
+        </script>
+    </footer>
+</body>
+</html>
+</body>
+</html>
